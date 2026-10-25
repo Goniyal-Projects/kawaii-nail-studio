@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Kawaii Nails</title>
+    <!-- UPDATED: Points your stylesheet asset securely to the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">Kawaii_Nails</div>
+
+    <!-- hamburger (mobile only) -->
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- UPDATED: All navigation routes mapped dynamically to target Flask endpoints -->
+    <nav id="navMenu" role="navigation" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact Us</a>
+    </nav>
+
+    <!-- desktop CTA (separate from nav so centering is perfect) -->
+    <a href="/appointment" class="appointment-desktop">Appointment</a>
+  </div>
+</header>
+
+<div id="backdrop" class="backdrop"></div>
+
+
+<!-- Why Choose Us Section -->
+<section class="why-wrap">
+  <!-- right-side background block (behind) -->
+  <div class="why-bg-right" aria-hidden="true"></div>
+
+  <!-- front content card (left) -->
+  <div class="why-card">
+    <h2>WHY CHOOSE US</h2>
+
+    <div class="choose-items">
+      <!-- UPDATED: Logo image sources mapped securely using url_for -->
+      <div class="choose-item">
+        <img src="{{ url_for('static', filename='images/logo1.jpg') }}" alt="Service Quality">
+        <p>Superior Service Quality</p>
+      </div>
+      <div class="choose-item">
+        <img src="{{ url_for('static', filename='images/logo2.webp') }}" alt="Hygiene Conscious">
+        <p>Hygiene Conscious</p>
+      </div>
+      <div class="choose-item">
+        <img src="{{ url_for('static', filename='images/logo4.jpg') }}" alt="Top Products">
+        <p>Top of the Line Products</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero">
+    <div class="hero-overlay">
+        <p class="quote">"Nails take any old outfit and make it new" – Essie Weingarten</p>
+        <a href="/appointment" class="btn">BOOK NOW!</a>
+    </div>
+</section>
+
+    
+<footer class="site-footer">
+  <div class="footer-container">
+    <p>© 2025 Kawaii Nails. All Rights Reserved.</p>
+    <p><i class="fa-solid fa-phone"></i> +91 74288 45441</p>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- UPDATED: Serving your script logic straight from the static directory -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</body>
+</html>

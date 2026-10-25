@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Appointments</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #444;
+      text-align: left;
+    }
+    th {
+      background: #333;
+    }
+    tr:nth-child(even) {
+      background: #1a1a1a;
+    }
+    .no-data {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 18px;
+      color: gray;
+    }
+    .clear-btn {
+      margin: 20px auto;
+      display: block;
+      background: crimson;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📋 All Appointments</h1>
+  <div id="appointmentsContainer"></div>
+  <button class="clear-btn" id="clearAppointments">Clear All Appointments</button>
+
+  <script>
+    function loadAppointments() {
+      let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+      let container = document.getElementById("appointmentsContainer");
+
+      if (appointments.length === 0) {
+        container.innerHTML = "<p class='no-data'>No appointments found.</p>";
+        return;
+      }
+
+      let table = `<table>
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Location</th>
+            <th>Requirement</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>`;
+
+      appointments.forEach(app => {
+        table += `
+          <tr>
+            <td>${app.fullName}</td>
+            <td>${app.email}</td>
+            <td>${app.mobile}</td>
+            <td>${app.location}</td>
+            <td>${app.requirement}</td>
+            <td>${app.date}</td>
+          </tr>`;
+      });
+
+      table += `</tbody></table>`;
+      container.innerHTML = table;
+    }
+
+    document.getElementById("clearAppointments").addEventListener("click", () => {
+      if (confirm("Are you sure you want to clear all appointments?")) {
+        localStorage.removeItem("appointments");
+        loadAppointments();
+      }
+    });
+
+    // Load data on page load
+    loadAppointments();
+  </script>
+
+</body>
+</html>

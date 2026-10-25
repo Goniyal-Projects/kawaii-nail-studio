@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Kawaii Nails</title>
+  <!-- Global Shared Stylesheet base -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Isolated Page-Specific Stylesheet layer -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+
+<body class="page-wrapper">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">Kawaii_Nails</div>
+
+      <!-- hamburger (mobile only) -->
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Navigation paths pointing to live Flask backend routes -->
+      <nav id="navMenu" role="navigation" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/services">Services</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact Us</a>
+      </nav>
+
+      <!-- Standalone appointment button link -->
+      <a href="/appointment" class="appointment-desktop">Appointment</a>
+    </div>
+  </header>
+
+  <div id="backdrop" class="backdrop"></div>
+
+  <!-- --- Main Content Layout --- -->
+  <main class="main-content">
+    <section class="contact-hero">
+      <h1>Get in Touch</h1>
+      <p>Have questions about our nail extensions or want a custom design quote? Drop us a message!</p>
+    </section>
+
+    <section class="contact-grid-container">
+      <!-- Left Side: Message Form -->
+      <div class="contact-form-box">
+        <h3>Send Us a Message</h3>
+        <form id="contactMessageForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email Address" required>
+          <input type="text" placeholder="Subject / Interest (e.g., Nail Art Pricing)" required>
+          <textarea placeholder="Write your message here..." rows="5" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Right Side: Store Timings & Perks -->
+      <div class="contact-details-box">
+        <div class="detail-card">
+          <h4>
+            <svg xmlns="http://w3.org" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+            Opening Hours
+          </h4>
+          <p>Monday - Saturday: <strong>11:00 AM - 8:00 PM</strong></p>
+          <p>Sunday: <strong>By Appointment Only</strong></p>
+        </div>
+
+        <div class="detail-card">
+          <h4>
+            <svg xmlns="http://w3.org" viewBox="0 0 512 512"><path d="M116.7 33.8c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.7 30.4l-232 256c-4.6 5.1-11.1 8-17.9 8s-13.3-2.9-17.9-8l-232-256c-7.7-8.5-8.5-21.2-1.7-30.4l112-152zM256 80L168.6 192H343.4L256 80z"/></svg>
+            Studio Appointments
+          </h4>
+          <p>We highly recommend booking slots in advance, especially for custom hand-painted 3D character nail art sets!</p>
+        </div>
+
+        <div class="detail-card">
+          <h4>
+            <svg xmlns="http://w3.org" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+            Landmark Help
+          </h4>
+          <p>Located conveniently right near the <strong>New Era Junior School</strong> block in Rajouri Garden Extension.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="info-section">
+    <div class="info-container">
+      <div class="info-left">
+        <h2 class="logo">Kawaii_Nails</h2>
+        <p>Get the latest notifications about offers & promotions</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Email Address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="info-right">
+        <h3>Contact Us</h3>
+        <p>
+          <svg xmlns="http://w3.org" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+          +91 74288 45441
+        </p>
+        <p>
+          <svg xmlns="http://w3.org" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+          info@nailrituals.com
+        </p>
+        <p style="align-items: flex-start;">
+          <svg xmlns="http://w3.org" viewBox="0 0 384 512" style="margin-top: 3px; flex-shrink: 0;"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+          <span>J-12/14, Near New Era Junior School, Block J, Rajouri Garden Extension, New Delhi (110027)</span>
+        </p>
+
+        <div class="info-socials">
+          <a href="#" class="pink-hover-svg">
+            <svg xmlns="http://w3.org" viewBox="0 0 320 512"><path d="M80 299.3V256H12v-54.7h68v-39.7c0-67.3 41.1-104 101.2-104 28.8 0 53.6 2.1 60.8 3v70.5h-41.7c-32.7 0-39 15.5-39 38.3V201h78l-10.2 54.7h-67.8v138.7H80z"/></svg>
+          </a>
+          <a href="#" class="pink-hover-svg">
+            <svg xmlns="http://w3.org" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.8 9.9 67.6 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM402.4 374.6c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-135.7 9s-106.2 2.6-135.7-9c-19.7-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-135.7s-2.6-106.2 9-135.7c7.8-19.7 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 135.7-9s106.2-2.6 135.7 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 135.7s2.7 106.2-9 135.7z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>© 2025 Kawaii Nails. All Rights Reserved.</p>
+      <p>
+        <svg xmlns="http://w3.org" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+        +91 74288 45441
+      </p>
+
+      <div class="footer-socials">
+        <a href="#" class="pink-hover-svg">
+          <svg xmlns="http://w3.org" viewBox="0 0 320 512"><path d="M80 299.3V256H12v-54.7h68v-39.7c0-67.3 41.1-104 101.2-104 28.8 0 53.6 2.1 60.8 3v70.5h-41.7c-32.7 0-39 15.5-39 38.3V201h78l-10.2 54.7h-67.8v138.7H80z"/></svg>
+        </a>
+        <a href="#" class="pink-hover-svg">
+          <svg xmlns="http://w3.org" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.8 9.9 67.6 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM402.4 374.6c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-135.7 9s-106.2 2.6-135.7-9c-19.7-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-135.7s-2.6-106.2 9-135.7c7.8-19.7 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 135.7-9s106.2-2.6 135.7 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 135.7s2.7 106.2-9 135.7z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

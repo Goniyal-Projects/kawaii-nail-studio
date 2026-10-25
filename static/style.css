@@ -1,0 +1,439 @@
+/* ==========================================================================
+   1. GLOBAL RESET & CORE PITCH BLACK DESIGN THEME
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000; /* Switched to absolute black background */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px; /* Tighter padding for a cleaner profile */
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION OVERLAY
+   ========================================================================== */
+header {
+    background-color: #000000; /* Pure Black Nav Bar */
+    border-bottom: 1px solid #1a1a1a;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffb6c1;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffb6c1;
+}
+
+/* ==========================================================================
+   3. HERO BANNER
+   ========================================================================== */
+.hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; /* Reduced height from 60vh to look cleaner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #e0e0e0;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: #ffb6c1;
+    color: #121212;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+    background-color: #ffa4b2;
+}
+
+/* ==========================================================================
+   4. ABOUT US SECTION (COMPACT PROFILE)
+   ========================================================================== */
+.about-section {
+    background-color: #000000; /* Pure Black */
+    text-align: center;
+    padding: 5px 0; /* Reduced padding to make it smaller */
+}
+
+.about-section h2 {
+    font-size: 1.8rem; /* Scaled down slightly */
+    margin-bottom: 15px;
+    color: #ffb6c1;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 2px;
+    background-color: #ffb6c1;
+    border-radius: 2px;
+}
+
+.about-section p {
+    font-size: 1rem;
+    max-width: 750px;
+    margin: 0 auto;
+    color: #cccccc;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE ARTWORK GALLERY GRID
+   ========================================================================== */
+.gallery-section {
+    background-color: #000000; /* Pure Black */
+    padding: 5px 0;
+}
+
+.gallery-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #ffb6c1;
+    text-align: center;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.gallery-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 2px;
+    background-color: #ffb6c1;
+    border-radius: 2px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Balanced dimensions */
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.15);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+/* ==========================================================================
+   6. INTERACTIVE LIGHTBOX MODAL
+   ========================================================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.show {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 6px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.show .lightbox-content {
+    transform: scale(1);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-lightbox:hover {
+    color: #ffb6c1;
+}
+
+/* ==========================================================================
+   7. COMPACT APPOINTMENT BOOKING FORM STYLES
+   ========================================================================== */
+.contact-section {
+    background-color: #000000; /* Pure Black */
+    padding: 5px 0;
+}
+
+.contact-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffb6c1;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 440px; /* Reduced from 550px to make the card more compact */
+    margin: 0 auto;
+    background-color: #0d0d0d; /* Slightly lighter shade off absolute black */
+    padding: 25px; /* Shrunk padding down */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    border: 1px solid #1a1a1a;
+}
+
+.form-group {
+    margin-bottom: 16px; /* Tighter item spacing */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    color: #b3b3b3;
+}
+
+.form-group input, 
+.form-group select {
+    padding: 10px 12px;
+    background-color: #000000;
+    border: 1px solid #222222;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: #ffb6c1;
+}
+
+/* ==========================================================================
+   8. CAPTCHA COMPACT BADGE DESIGN
+   ========================================================================== */
+.captcha-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.captcha-wrapper label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    color: #b3b3b3;
+}
+
+.captcha-display-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.captcha-code {
+    background: linear-gradient(135deg, #ffb6c1, #ffa4b2);
+    color: #121212;
+    padding: 8px 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.refresh-captcha-btn {
+    background-color: #1a1a1a;
+    border: 1px solid #222222;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.captcha-wrapper input {
+    padding: 10px 12px;
+    background-color: #000000;
+    border: 1px solid #222222;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.captcha-wrapper input:focus {
+    outline: none;
+    border-color: #ffb6c1;
+}
+
+.error-msg {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    min-height: 16px;
+}
+
+/* ==========================================================================
+   9. SUBMIT ACTION BUTTONS
+   ========================================================================== */
+.submit-btn {
+    width: 100%;
+    background-color: #ffb6c1;
+    color: #121212;
+    border: none;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffa4b2;
+}
+
+/* ==========================================================================
+   10. CENTRAL FOOTER COMPONENT
+   ========================================================================== */
+footer {
+    background-color: #000000; /* Absolute Black */
+    border-top: 1px solid #1a1a1a;
+    padding: 12px 20px; /* Locked exactly at 5px padding */
+    margin-top: 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #666666;
+    font-size: 0.8rem;
+}
+
+.footer-right {
+    color: #ffb6c1;
+}
+
+/* ==========================================================================
+   11. MOBILE MEDIA LIFECYCLES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container, .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}

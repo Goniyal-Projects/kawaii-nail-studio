@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kawaii Nail Studio{% endblock %}</title>
+    <!-- Centralized Stylesheet Connection -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    <!-- Global Header / Navigation Menu -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Kawaii Nails 🌸</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dynamic Content Area -->
+    <main>
+        {% block content %}
+        <!-- Child templates will inject their unique page content here -->
+        {% endblock %}
+    </main>
+
+    <!-- Centralized Reusable Footer Component -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Kawaii Nail Studio. All rights reserved.</p>
+            </div>
+            <div class="footer-middle">
+                <p>Spreading sparkle, one nail at a time ✨</p>
+            </div>
+            <div class="footer-right">
+                <p>Follow us: #KawaiiNails</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Centralized JavaScript Connection -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

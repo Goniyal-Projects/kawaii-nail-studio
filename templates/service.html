@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Kawaii Nails</title>
+    <!-- Dynamic stylesheet linking from static asset repository (Bumping cache to v=3) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=99">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Component specific styling additions for the services content layout */
+        .services-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .services-section h1 { color: #d63384; font-size: 36px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .services-subtitle { color: #666; font-size: 16px; margin-bottom: 40px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .service-card { background: #fff; border: 1px solid #ffb6c1; border-radius: 12px; padding: 30px 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(214, 51, 132, 0.15); }
+        .service-icon { font-size: 40px; color: #d63384; margin-bottom: 20px; }
+        .service-card h3 { font-size: 22px; color: #333; margin: 10px 0; }
+        .service-card p { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+        .service-price { font-size: 24px; color: #d63384; font-weight: bold; margin-top: auto; }
+        .services-cta { margin-top: 40px; }
+        .services-cta .btn-book { display: inline-block; background-color: #d63384; color: #fff; padding: 12px 35px; border-radius: 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: background 0.3s; }
+        .services-cta .btn-book:hover { background-color: #b8236c; }
+    </style>
+</head>
+<body>
+    
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">Kawaii_Nails</div>
+
+    <!-- hamburger (mobile only) -->
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-controls="navMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Navigation routes targeting Flask application endpoints -->
+    <nav id="navMenu" role="navigation" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact Us</a>
+    </nav>
+
+    <!-- desktop CTA action routing element link -->
+    <a href="/appointment" class="appointment-desktop">Appointment</a>
+  </div>
+</header>
+
+<div id="backdrop" class="backdrop"></div>
+
+<!-- Custom Nail Studio Menu Content Section -->
+<section class="services-section">
+    <h1>Our Nail Menu</h1>
+    <p class="services-subtitle">Indulge in our custom kawaii treatments, hand-painted art, and luxury extension services.</p>
+
+    <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>Gel Extensions</h3>
+            <p>Premium lightweight extensions tailored perfectly to your nail shape, providing unmatched longevity, a glossy shine, and a natural finish.</p>
+            <div class="service-price">₹1,999+</div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Custom Kawaii Art</h3>
+            <p>Our signature package featuring fully customized, hand-painted character art, complex 3D charms, rhinestones, and vibrant color configurations.</p>
+            <div class="service-price">₹2,499+</div>
+        </div>
+
+        <!-- Service 3 [FIXED ICON] -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+            <h3>Gel Overlay & Polish</h3>
+            <p>Reinforce and strengthen your natural nail layout with a durable protective gel overlay topped with rich high-pigment gel polish coatings.</p>
+            <div class="service-price">₹1,199+</div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+            <h3>Luxury Manicure</h3>
+            <p>A relaxing hand therapy ritual including cuticle treatment, organic sugar exfoliation, deep moisturizing massage, and essential oil treatments.</p>
+            <div class="service-price">₹799+</div>
+        </div>
+    </div>
+
+    <div class="services-cta">
+        <a href="/appointment" class="btn-book">Secure Your Slot Now</a>
+    </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <p>© 2025 Kawaii Nails. All Rights Reserved.</p>
+    <p>
+      <svg xmlns="http://w3.org" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+      +91 74288 45441
+    </p>
+    <div class="social-icons">
+      <a href="#">
+        <svg xmlns="http://w3.org" viewBox="0 0 320 512"><path d="M80 299.3V256H12v-54.7h68v-39.7c0-67.3 41.1-104 101.2-104 28.8 0 53.6 2.1 60.8 3v70.5h-41.7c-32.7 0-39 15.5-39 38.3V201h78l-10.2 54.7h-67.8v138.7H80z"/></svg>
+      </a>
+      <a href="#">
+        <svg xmlns="http://w3.org" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.8 9.9 67.6 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM402.4 374.6c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-135.7 9s-106.2 2.6-135.7-9c-19.7-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-135.7s-2.6-106.2 9-135.7c7.8-19.7 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 135.7-9s106.2-2.6 135.7 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 135.7s2.7 106.2-9 135.7z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Linking script controller safely to static asset path execution engine -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
